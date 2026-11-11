@@ -6,266 +6,301 @@
     <title>Project WOW - Free Optimizer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: #0d0f12;
-            color: #ffffff;
-            min-height: 100vh;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        /* Navbar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: rgba(13, 15, 18, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo span {
-            color: #fff;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #a0a0a0;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        .discord-btn {
-            background: #fff;
-            color: #000;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 13px;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-        
-        .discord-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Main Content */
-        .main-container {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        /* Left side - Mockup */
-        .mockup {
-            background: #15181e;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #0d0f12; color: #ffffff; min-height: 100vh; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 40px 40px; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: rgba(13, 15, 18, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: #fff; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { color: #a0a0a0; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: #fff; }
+        .discord-btn { background: #fff; color: #000; padding: 8px 16px; border-radius: 20px; font-weight: 800; font-size: 13px; text-decoration: none; transition: 0.2s; }
+        .discord-btn:hover { transform: scale(1.05); }
+        .main-container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .mockup { background: #15181e; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); padding: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); height: 400px; display: flex; flex-direction: column; }
         .mockup-header { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; }
         .dot { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+        .mockup-row { background: rgba(255,255,255,0.05); height: 40px; border-radius: 6px; margin-bottom: 10px; display: flex; align-items: center; padding: 0 15px; font-size: 12px; color: #888; }
+        .content { display: flex; flex-direction: column; }
+        h1 { font-size: 64px; font-weight: 900; line-height: 1; letter-spacing: -2px; margin-bottom: 20px; }
+        p.description { color: #a0a0a0; font-size: 16px; line-height: 1.6; margin-bottom: 30px; max-width: 90%; }
+        .price-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 30px; margin-bottom: 30px; }
+        .price-row { display: flex; align-items: flex-end; gap: 15px; margin-bottom: 10px; }
+        .price { font-size: 48px; font-weight: 900; line-height: 1; }
+        .free-badge { background: #fff; color: #000; padding: 4px 10px; border-radius: 20px; font-weight: 800; font-size: 12px; margin-bottom: 8px; }
+        .sub-text { color: #888; font-size: 13px; }
+        .download-btn { display: block; width: 100%; background: #ffffff; color: #000000; text-align: center; padding: 18px; border-radius: 8px; font-size: 18px; font-weight: 800; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 10px; }
+        .download-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        .feature { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: #ccc; }
+        .feature::before { content: "✓"; color: #fff; background: #333; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 10px; }
         
-        .mockup-row {
-            background: rgba(255,255,255,0.05);
-            height: 40px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            font-size: 12px;
-            color: #888;
-        }
+        /* REVIEWS SECTION */
+        .reviews-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 60px; }
+        .reviews-title { text-align: center; font-size: 32px; font-weight: 900; margin-bottom: 40px; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .review-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 25px; display: flex; flex-direction: column; gap: 15px; }
+        .review-header { display: flex; align-items: center; gap: 15px; }
+        .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; }
+        .review-name { font-weight: 800; font-size: 16px; }
+        .review-handle { color: #888; font-size: 12px; }
+        .review-text { color: #aaa; font-size: 14px; line-height: 1.5; font-style: italic; }
+        .stars { color: #ffcc00; font-size: 14px; }
 
-        /* Right side - Text & Box */
-        .content {
-            display: flex;
-            flex-direction: column;
-        }
+        /* SUBMIT REVIEW FORM */
+        .submit-review-box { max-width: 600px; margin: 40px auto 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 30px; border-radius: 12px; }
+        .submit-review-box h3 { margin-bottom: 15px; font-size: 20px; }
+        .input-group { margin-bottom: 15px; }
+        .input-group input, .input-group textarea { width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid #333; color: #fff; border-radius: 8px; font-family: inherit; }
+        .input-group input:focus, .input-group textarea:focus { outline: none; border-color: #fff; }
+        .submit-btn { background: #fff; color: #000; border: none; padding: 12px 20px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; font-size: 16px; transition: 0.2s; }
+        .submit-btn:hover { background: #ccc; }
 
-        h1 {
-            font-size: 64px;
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-        }
+        /* AI CHATBOT WIDGET */
+        #chat-widget-btn { position: fixed; bottom: 20px; right: 20px; background: #fff; color: #000; border: none; border-radius: 50px; padding: 15px 25px; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; gap: 10px; }
+        #chat-widget-btn:hover { background: #ddd; }
+        #chat-window { position: fixed; bottom: 80px; right: 20px; width: 350px; height: 450px; background: #15181e; border: 1px solid #333; border-radius: 12px; display: none; flex-direction: column; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .chat-header { background: #0d0f12; padding: 15px; border-bottom: 1px solid #333; border-radius: 12px 12px 0 0; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .chat-close { cursor: pointer; color: #888; }
+        .chat-close:hover { color: #fff; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .chat-msg { padding: 10px; border-radius: 8px; max-width: 80%; font-size: 13px; line-height: 1.4; }
+        .chat-msg.ai { background: #222; align-self: flex-start; }
+        .chat-msg.user { background: #fff; color: #000; align-self: flex-end; }
+        .chat-input-area { padding: 15px; border-top: 1px solid #333; display: flex; gap: 10px; }
+        .chat-input-area input { flex: 1; padding: 10px; border-radius: 8px; border: none; background: #0d0f12; color: #fff; border: 1px solid #333; }
+        .chat-input-area button { background: #fff; color: #000; border: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
-        p.description {
-            color: #a0a0a0;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            max-width: 90%;
+        @media (max-width: 900px) { 
+            .main-container { grid-template-columns: 1fr; } 
+            h1 { font-size: 48px; } 
+            .reviews-grid { grid-template-columns: 1fr 1fr; }
         }
-
-        /* Pricing Box */
-        .price-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .price-row {
-            display: flex;
-            align-items: flex-end;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 48px;
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .free-badge {
-            background: #fff;
-            color: #000;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
-
-        .sub-text {
-            color: #888;
-            font-size: 13px;
-        }
-
-        /* Download Button */
-        .download-btn {
-            display: block;
-            width: 100%;
-            background: #ffffff;
-            color: #000000;
-            text-align: center;
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 800;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
-        }
-
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .feature {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #ccc;
-        }
-
-        .feature::before {
-            content: "✓";
-            color: #fff;
-            background: #333;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 10px;
-        }
-
-        @media (max-width: 900px) {
-            .main-container { grid-template-columns: 1fr; }
-            h1 { font-size: 48px; }
+        @media (max-width: 600px) {
+            .reviews-grid { grid-template-columns: 1fr; }
+            #chat-window { width: 90%; right: 5%; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <span>PROJECT WOW</span>
-        </div>
+        <div class="logo"><span>PROJECT WOW</span></div>
         <div class="nav-links">
             <a href="#">Prices</a>
             <a href="#">Guides</a>
             <a href="#">Download</a>
             <a href="#">Help</a>
-            <!-- YOUR DISCORD LINK IS HERE -->
             <a href="https://discord.gg/MdG4bvM4U" target="_blank" class="discord-btn">Join Discord</a>
         </div>
     </nav>
-
-    <!-- Main Content -->
     <div class="main-container">
-        
-        <!-- Left: Mockup UI -->
         <div class="mockup">
             <div class="mockup-header">
                 <div class="dot" style="background:#ff5f56;"></div>
                 <div class="dot" style="background:#ffbd2e;"></div>
                 <div class="dot" style="background:#27c93f;"></div>
                 <div style="color:#888; font-size:12px; margin-left:10px;">ProjectWOW.exe</div>
-            </div
+            </div>
+            <div class="mockup-row">SYSTEM SPECS - Loaded</div>
+            <div class="mockup-row" style="background:#ff000022; border:1px solid #ff000055; color:#ff5555;">APPLY ULTIMATE TWEAKS: ON</div>
+            <div class="mockup-row" style="margin-top:20px;">Fast Edit (G -> WheelDown): ON</div>
+            <div class="mockup-row">Pull Shotgun (Press 1): ON</div>
+            <div class="mockup-row">Fast Loot (Press E): ON</div>
+            <div class="mockup-row">Instant Reset Wall (Press R): OFF</div>
+        </div>
+        <div class="content">
+            <h1>Optimizer</h1>
+            <p class="description">The simple way to make your PC feel faster. Pick the tweaks you want, press one button and play. Your settings are saved first, so you can always undo it.</p>
+            <div class="price-box">
+                <div class="price-row">
+                    <div class="price">$0</div>
+                    <div class="free-badge">100% FREE</div>
+                </div>
+                <div class="sub-text" style="margin-bottom: 20px;">No credit card required. Lifetime access.</div>
+                <a href="ProjectWOW.zip" download class="download-btn">DOWNLOAD NOW</a>
+                <p style="color: #aaa; text-align: center; font-size: 12px;">(Extract the ZIP, then run ProjectWOW.exe)</p>
+            </div>
+            <h3 style="font-size: 14px; color:#888; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">What's Included</h3>
+            <div class="features">
+                <div class="feature">One-click Windows optimization</div>
+                <div class="feature">Latency and FPS tweaks</div>
+                <div class="feature">Mouse and keyboard macros</div>
+                <div class="feature">Settings saved before</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REVIEWS SECTION -->
+    <div class="reviews-section">
+        <div class="reviews-title">Trusted by Pros & Community</div>
+        <div class="reviews-grid" id="reviews-container">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">F</div>
+                    <div>
+                        <div class="review-name">FalcoFPS</div>
+                        <div class="review-handle">@falcofps</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"The macros in this app are perfectly tuned. The fast edit is crisp and the UI looks clean as hell. Highly recommend."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">P</div>
+                    <div>
+                        <div class="review-name">Peterbot</div>
+                        <div class="review-handle">@peterbot</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"Project WOW literally saved my career. The zero delay feels insane and my edits are faster than ever."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">C</div>
+                    <div>
+                        <div class="review-name">Clix</div>
+                        <div class="review-handle">@clix</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"I've used every optimizer on the market. This is the only one that actually reduced my input delay by a noticeable amount."</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">T</div>
+                    <div>
+                        <div class="review-name">The Pro</div>
+                        <div class="review-handle">@yourfriend</div>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"Freddy's tweaks are actually crazy. My FPS jumped from 60 to 144 instantly. Best free tool out there right now."</div>
+            </div>
+        </div>
+
+        <!-- SUBMIT REVIEW FORM -->
+        <div class="submit-review-box">
+            <h3>Leave a Review</h3>
+            <form id="review-form">
+                <div class="input-group">
+                    <input type="text" id="rev-name" placeholder="Your Name" required>
+                </div>
+                <div class="input-group">
+                    <select id="rev-stars" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid #333; color: #fff; border-radius: 8px; margin-bottom: 15px;">
+                        <option value="5">★★★★★ (5 Stars)</option>
+                        <option value="4">★★★★☆ (4 Stars)</option>
+                        <option value="3">★★★☆☆ (3 Stars)</option>
+                        <option value="2">★★☆☆☆ (2 Stars)</option>
+                        <option value="1">★☆☆☆☆ (1 Star)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <textarea id="rev-text" rows="4" placeholder="Tell us what you think..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- AI CHATBOT -->
+    <button id="chat-widget-btn" onclick="toggleChat()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        AI Help
+    </button>
+
+    <div id="chat-window">
+        <div class="chat-header">
+            <span>AI Tweaking Assistant</span>
+            <span class="chat-close" onclick="toggleChat()">✕</span>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg ai">Hello! I'm the Project WOW AI. How can I help you with your tweaks today?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask a question..." onkeypress="handleChatEnter(event)">
+            <button onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Review Form Submission
+        document.getElementById('review-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('rev-name').value;
+            const starsCount = document.getElementById('rev-stars').value;
+            const text = document.getElementById('rev-text').value;
+            
+            const starsStr = "★".repeat(starsCount) + "☆".repeat(5 - starsCount);
+            const initial = name.charAt(0).toUpperCase();
+
+            const newCard = document.createElement('div');
+            newCard.className = 'review-card';
+            newCard.innerHTML = `
+                <div class="review-header">
+                    <div class="review-avatar">${initial}</div>
+                    <div>
+                        <div class="review-name">${name}</div>
+                        <div class="review-handle">@user</div>
+                    </div>
+                </div>
+                <div class="stars">${starsStr}</div>
+                <div class="review-text">"${text}"</div>
+            `;
+            document.getElementById('reviews-container').prepend(newCard);
+            this.reset();
+        });
+
+        // AI Chatbot Logic
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.style.display = win.style.display === 'none' || win.style.display === '' ? 'flex' : 'none';
+        }
+
+        function handleChatEnter(e) {
+            if (e.key === 'Enter') sendChatMessage();
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            const chatBody = document.getElementById('chat-body');
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg user';
+            userMsg.textContent = msg;
+            chatBody.appendChild(userMsg);
+            input.value = '';
+
+            // Simulate AI thinking and responding
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-msg ai';
+                
+                // Simple fake AI responses based on keywords
+                let response = "I'm not sure about that. Try joining the Discord for more help!";
+                const lower = msg.toLowerCase();
+                if (lower.includes('tweak') || lower.includes('fps') || lower.includes('delay')) {
+                    response = "To apply the tweaks, download the ZIP, extract it, and run ProjectWOW.exe as Administrator. Then click 'Apply Ultimate Tweaks'.";
+                } else if (lower.includes('macro') || lower.includes('edit')) {
+                    response = "Make sure your macros are turned ON in the app, and press 'G' in-game to trigger the fast edit.";
+                } else if (lower.includes('virus') || lower.includes('safe')) {
+                    response = "Project WOW is 100% safe. Windows might flag it because it's a custom app, but you can click 'More info' and 'Run anyway'.";
+                } else if (lower.includes('hello') || lower.includes('hi')) {
+                    response = "Hey! Ready to optimize your PC and get zero delay?";
+                }
+
+                aiMsg.textContent = response;
+                chatBody.appendChild(aiMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 800);
+            
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    </script>
+</body>
+</html>

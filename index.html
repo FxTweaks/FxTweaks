@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project WOW - Free Optimizer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0d0f12;
+            color: #ffffff;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(13, 15, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .discord-btn {
+            background: #fff;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 13px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        
+        .discord-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left side - Mockup */
+        .mockup {
+            background: #15181e;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mockup-header { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+        
+        .mockup-row {
+            background: rgba(255,255,255,0.05);
+            height: 40px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Right side - Text & Box */
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        p.description {
+            color: #a0a0a0;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 90%;
+        }
+
+        /* Pricing Box */
+        .price-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .free-badge {
+            background: #fff;
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .sub-text {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: block;
+            width: 100%;
+            background: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .feature {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #ccc;
+        }
+
+        .feature::before {
+            content: "✓";
+            color: #fff;
+            background: #333;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container { grid-template-columns: 1fr; }
+            h1 { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <span>PROJECT WOW</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Prices</a>
+            <a href="#">Guides</a>
+            <a href="#">Download</a>
+            <a href="#">Help</a>
+            <!-- YOUR DISCORD LINK IS HERE -->
+            <a href="https://discord.gg/MdG4bvM4U" target="_blank" class="discord-btn">Join Discord</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        
+        <!-- Left: Mockup UI -->
+        <div class="mockup">
+            <div class="mockup-header">
+                <div class="dot" style="background:#ff5f56;"></div>
+                <div class="dot" style="background:#ffbd2e;"></div>
+                <div class="dot" style="background:#27c93f;"></div>
+                <div style="color:#888; font-size:12px; margin-left:10px;">ProjectWOW.exe</div>
+            </div
